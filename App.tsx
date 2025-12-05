@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Section } from './components/Section';
 import { InvestmentTable } from './components/InvestmentTable';
-import { CONTENT, TOTAL_INVESTMENT, TOTAL_OPEX, EXCHANGE_RATE, CONTACT_EMAIL } from './constants';
-import { Language } from './types';
+import { ScenarioChart } from './components/ScenarioChart';
+import { CONTENT, TOTAL_INVESTMENT, EXCHANGE_RATE, CONTACT_EMAIL } from './constants';
+import { Language, UnitMetrics } from './types';
 import { CheckCircle2, Factory, TrendingUp } from 'lucide-react';
 
 function App() {
@@ -19,7 +20,10 @@ function App() {
   }, [language]);
 
   const totalInvestmentUSD = TOTAL_INVESTMENT / EXCHANGE_RATE;
-  const totalOpexUSD = TOTAL_OPEX / EXCHANGE_RATE;
+  
+  // Calculate total OPEX dynamically from items
+  const calculatedTotalOpex = t.opex.items.reduce((acc, item) => acc + item.amount, 0);
+  const totalOpexUSD = calculatedTotalOpex / EXCHANGE_RATE;
 
   const formatUSD = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -114,9 +118,9 @@ function App() {
                   />
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-secondary/5 p-3 rounded-lg border border-secondary/20 mt-2 gap-2 sm:gap-0">
-                  <span className="text-emerald-500 font-bold uppercase text-xs tracking-wider">{t.opex.totalLabel}</span>
+                  <span className="text-emerald-500 font-bold uppercase text-xs tracking-wider">Total OPEX Estimado</span>
                   <div className="text-left sm:text-right">
-                    <div className="text-white font-bold font-serif tabular-nums text-sm sm:text-base">{new Intl.NumberFormat('es-PY').format(TOTAL_OPEX)} Gs</div>
+                    <div className="text-white font-bold font-serif tabular-nums text-sm sm:text-base">{new Intl.NumberFormat('es-PY').format(calculatedTotalOpex)} Gs</div>
                     <div className="text-emerald-400 font-bold font-serif tabular-nums text-xs sm:text-sm">{formatUSD(totalOpexUSD)}</div>
                   </div>
                 </div>
@@ -126,12 +130,12 @@ function App() {
               <div className="space-y-4 w-full min-w-0">
                 <h3 className="text-xs uppercase tracking-widest font-semibold text-accent mb-2 pl-1">{t.opex.unitMetricsTitle}</h3>
                 <div className="bg-card/80 rounded-xl border border-border p-4 sm:p-6 space-y-4 h-full shadow-inner">
-                  {t.opex.unitMetrics.map((metric, index) => (
-                    <div key={index} className="flex flex-col gap-1 border-b border-white/5 pb-3 last:border-0 last:pb-0">
+                  {(Object.keys(t.opex.unitMetrics) as Array<keyof UnitMetrics>).map((key) => (
+                    <div key={key} className="flex flex-col gap-1 border-b border-white/5 pb-3 last:border-0 last:pb-0">
                       <div className="flex justify-between items-baseline flex-wrap gap-2">
-                        <span className="text-slate-400 text-sm">{metric.label}</span>
-                        <span className={`font-serif font-bold tracking-wide text-right ${index === t.opex.unitMetrics.length - 1 ? 'text-accent text-lg' : 'text-white'}`}>
-                          {metric.value}
+                        <span className="text-slate-400 text-sm">{t.opex.unitMetrics[key].label}</span>
+                        <span className={`font-serif font-bold tracking-wide text-right ${key === 'annualProd' ? 'text-accent text-lg' : 'text-white'}`}>
+                          {t.opex.unitMetrics[key].value}
                         </span>
                       </div>
                     </div>
@@ -195,24 +199,12 @@ function App() {
                  </div>
               </div>
               
-              <div className="bg-card rounded-xl p-6 border border-border shadow-xl h-full flex flex-col justify-center">
-                <h3 className="font-serif text-lg text-white font-bold mb-3">{t.scenarios.interpretation.title}</h3>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">
-                  {t.scenarios.interpretation.text}
+              <div className="bg-black/20 rounded-xl p-4 border border-border w-full min-w-0">
+                <h4 className="text-xs text-center text-accent uppercase tracking-widest font-semibold mb-2">{t.scenarios.labels.chartTitle}</h4>
+                <ScenarioChart data={t.scenarios.items} labels={t.scenarios.labels} />
+                <p className="text-xs text-center text-slate-500 mt-4 max-w-xs mx-auto italic">
+                  {t.scenarios.chartNote}
                 </p>
-                <ul className="space-y-2 mb-5">
-                  {t.scenarios.interpretation.bullets.map((bullet, i) => (
-                    <li key={i} className="text-xs text-slate-500 flex gap-2">
-                      <span className="text-accent">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="bg-accent/10 border border-accent/20 p-4 rounded-lg mt-auto">
-                  <p className="text-xs md:text-sm text-slate-300 italic">
-                    {t.scenarios.interpretation.conclusion}
-                  </p>
-                </div>
               </div>
             </div>
           </Section>

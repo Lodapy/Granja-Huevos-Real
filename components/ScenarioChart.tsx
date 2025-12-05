@@ -50,7 +50,7 @@ export const ScenarioChart: React.FC<ScenarioChartProps> = ({ data: scenarios, l
 
   return (
     <div className="h-64 w-full mt-4">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" minWidth={0}>
         <BarChart data={scenarios} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#132e26" vertical={false} />
           <XAxis 
