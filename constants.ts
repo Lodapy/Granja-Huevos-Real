@@ -1,7 +1,7 @@
 
 import { Content, Language } from './types';
 
-export const TOTAL_INVESTMENT = 2039835000;
+export const TOTAL_INVESTMENT = 1903488000;
 export const EXCHANGE_RATE = 6950;
 export const CONTACT_EMAIL = "inversiones@granjarural.com";
 
@@ -42,40 +42,34 @@ export const CONTENT: Record<Language, Content> = {
       keyPointText: "Con los precios actuales de alimento comercial por gallina, el proyecto muestra que el costo por huevo se acerca al nivel de los precios de venta tradicionales del mercado. Por eso, el modelo se plantea en dos fases: una fase inicial de operación con alimento comercial (para aprender, ajustar y estabilizar la producción) y una fase de integración hacia atrás con formulación propia de raciones, que permite bajar de forma estructural el costo por huevo y volver el proyecto altamente rentable."
     },
     capex: {
-      title: "Inversión Inicial (Gastos de Capital)",
-      subtitle: "La inversión se concentra en infraestructura galponera y adquisición de las 36.000 ponedoras.",
-      tableTitle: "Detalle de Inversión",
-      tableHeaders: ["Categoría", "Monto (Gs)", "Monto (USD)"],
+      title: "Inversión inicial (CAPEX) – Construcción de galpones incluida",
+      subtitle: "La inversión inicial contempla la construcción de tres galpones de 125 m × 12 m, con un costo total de USD 120.000 (equivalente a 888.000.000 Gs al tipo de cambio de referencia), además de la compra de las 36.000 ponedoras y los equipos productivos asociados.",
+      tableTitle: "Detalle de inversión inicial",
+      tableHeaders: ["Categoría", "Monto (Gs)"],
       items: [
-        { 
-          category: "Infraestrutura (3 galpones)", 
-          amount: 955947000,
-          details: [
-            { name: "3 Galpones 125x12m", value: "Estructura completa" },
-            { name: "Equipamento", value: "Comederos, Bebederos, Silos" },
-            { name: "Montaje Eléctrico", value: "Tableros y Generador" }
-          ]
-        },
-        { 
-          category: "Compra de Aves", 
-          amount: 406800000,
-          details: [
-            { name: "36.000 Ponedoras", value: "Genética Hi-Line Brown" },
-            { name: "Costo unitario", value: "Gs 9.400 / ave" },
-            { name: "Servicio de Despique", value: "Incluido" }
-          ]
+        {
+          category: "Construcción de 3 galpones (USD 120.000)",
+          amount: 888000000,
+          details: []
         },
         {
-            category: "Capital de Trabajo e Imprevistos",
+          category: "Compra de 36.000 ponedoras (Gs 9.400/ave)",
+          amount: 338400000,
+          details: []
+        },
+        {
+            category: "Equipos y sistemas productivos (ventilación, bebederos, etc.)",
             amount: 677088000,
-            details: [
-                { name: "Alimento Inicial", value: "Fase arranque" },
-                { name: "Gastos Pre-operativos", value: "Permisos y Gestión" }
-            ]
+            details: []
         }
       ],
-      totalLabel: "Total Gastos de Capital",
-      note: "El valor por gallina (Gs 9.400) refleja precios actuales. El CAPEX se recupera dentro del primer ciclo productivo. Cambio ref: 6.950 Gs/USD."
+      totalLabel: "Total CAPEX del proyecto",
+      investorNotesTitle: "Notas para el inversor",
+      investorNotes: [
+        "El costo de galpones se expresa en dólares por tratarse de obra civil.",
+        "El CAPEX se recupera en el primer ciclo productivo en escenarios ≥ 500 Gs/huevo.",
+        "El diseño es modular y permite ampliar la capacidad por bloques de 12.000 aves."
+      ]
     },
     opex: {
       title: "Costos operativos anuales (OPEX) con sanidad real",
@@ -212,40 +206,34 @@ export const CONTENT: Record<Language, Content> = {
       keyPointText: "Com os preços atuais de ração comercial por galinha, o projeto mostra que o custo por ovo se aproxima do nível dos preços de venda tradicionais do mercado. Por isso, o modelo é planejado em duas fases: uma fase inicial de operação com ração comercial (para aprender, ajustar e estabilizar a produção) e uma fase de integração para trás com formulação própria de rações, que permite baixar de forma estrutural o custo por ovo e tornar o projeto altamente rentável."
     },
     capex: {
-      title: "Investimento Inicial (Despesas de Capital)",
-      subtitle: "O investimento concentra-se em infraestrutura de galpões e aquisição de 36.000 poedeiras.",
-      tableTitle: "Detalhe de Investimento",
-      tableHeaders: ["Categoria", "Valor (Gs)", "Valor (USD)"],
+      title: "Investimento inicial (CAPEX) – Construção de galpões incluída",
+      subtitle: "O investimento inicial contempla a construção de três galpões de 125 m × 12 m, com um custo total de USD 120.000 (equivalente a 888.000.000 Gs ao câmbio de referência), além da compra de 36.000 poedeiras e equipamentos produtivos associados.",
+      tableTitle: "Detalhe de investimento inicial",
+      tableHeaders: ["Categoria", "Valor (Gs)"],
       items: [
-        { 
-          category: "Infraestrutura (3 galpões)", 
-          amount: 955947000,
-          details: [
-            { name: "3 Galpões 125x12m", value: "Estrutura completa" },
-            { name: "Equipamento", value: "Comedouros, Bebedouros, Silos" },
-            { name: "Montagem Elétrica", value: "Quadros e Gerador" }
-          ]
-        },
-        { 
-          category: "Compra de Aves", 
-          amount: 406800000,
-          details: [
-            { name: "36.000 Poedeiras", value: "Genética Hi-Line Brown" },
-            { name: "Custo unitário", value: "Gs 9.400 / ave" },
-            { name: "Serviço de Debicagem", value: "Incluído" }
-          ]
+        {
+          category: "Construção de 3 galpões (USD 120.000)",
+          amount: 888000000,
+          details: []
         },
         {
-            category: "Capital de Giro e Imprevistos",
+          category: "Compra de 36.000 poedeiras (Gs 9.400/ave)",
+          amount: 338400000,
+          details: []
+        },
+        {
+            category: "Equipamentos e sistemas produtivos (ventilação, bebedouros, etc.)",
             amount: 677088000,
-            details: [
-                { name: "Ração Inicial", value: "Fase arranque" },
-                { name: "Despesas Pré-operacionais", value: "Licenças e Gestão" }
-            ]
+            details: []
         }
       ],
-      totalLabel: "Total Despesas de Capital",
-      note: "O valor por galinha (Gs 9.400) reflete preços atuais. O CAPEX é recuperado dentro do primeiro ciclo produtivo. Câmbio ref: 6.950 Gs/USD."
+      totalLabel: "Total CAPEX do projeto",
+      investorNotesTitle: "Notas para o investidor",
+      investorNotes: [
+        "O custo de galpões é expresso em dólares por tratar-se de obra civil.",
+        "O CAPEX é recuperado no primeiro ciclo produtivo em cenários ≥ 500 Gs/ovo.",
+        "O design é modular e permite ampliar a capacidade por blocos de 12.000 aves."
+      ]
     },
     opex: {
       title: "Custos operacionais anuais (OPEX) com sanidade real",

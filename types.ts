@@ -67,7 +67,8 @@ export interface ContentCapex {
   tableHeaders: string[];
   items: InvestmentItem[];
   totalLabel: string;
-  note: string;
+  investorNotesTitle: string;
+  investorNotes: string[];
 }
 
 export interface ContentOpex {

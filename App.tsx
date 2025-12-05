@@ -63,36 +63,34 @@ function App() {
           </Section>
 
           {/* CAPEX Section */}
-          <Section 
-            title={t.capex.title} 
+          <Section
+            title={t.capex.title}
             subtitle={t.capex.subtitle}
           >
             <div className="grid md:grid-cols-2 gap-8 items-start">
               <div className="space-y-4 w-full min-w-0">
                  <h3 className="text-xs uppercase tracking-widest font-semibold text-accent mb-2 pl-1">{t.capex.tableTitle}</h3>
                  <div className="max-w-full">
-                   <InvestmentTable 
-                     items={t.capex.items} 
-                     headers={t.capex.tableHeaders} 
-                     exchangeRate={EXCHANGE_RATE}
+                   <InvestmentTable
+                     items={t.capex.items}
+                     headers={t.capex.tableHeaders}
                    />
                  </div>
                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-accent/10 p-3 rounded-lg border border-accent/20 mt-2 gap-2 sm:gap-0">
                     <span className="text-accent font-bold uppercase text-xs tracking-wider">{t.capex.totalLabel}</span>
-                    <div className="text-left sm:text-right">
-                      <div className="text-white font-bold font-serif tabular-nums text-sm sm:text-base">{new Intl.NumberFormat('es-PY').format(TOTAL_INVESTMENT)} Gs</div>
-                      <div className="text-emerald-400 font-bold font-serif tabular-nums text-xs sm:text-sm">{formatUSD(totalInvestmentUSD)}</div>
-                    </div>
+                    <div className="text-white font-bold font-serif tabular-nums text-sm sm:text-base">{new Intl.NumberFormat('es-PY').format(TOTAL_INVESTMENT)} Gs</div>
                  </div>
               </div>
               <div className="bg-card/40 p-6 rounded-xl border border-white/5 flex flex-col justify-center h-full">
-                 <div className="flex items-center gap-3 mb-4 text-accent">
-                    <Factory className="w-6 h-6" />
-                    <span className="font-serif italic text-lg opacity-80">Modular & Escalable</span>
-                 </div>
-                 <p className="text-slate-400 text-sm leading-relaxed italic border-l-2 border-accent/30 pl-4">
-                    {t.capex.note}
-                 </p>
+                 <div className="text-xs uppercase tracking-widest font-semibold text-accent mb-4">{t.capex.investorNotesTitle}</div>
+                 <ul className="space-y-3">
+                   {t.capex.investorNotes.map((note, idx) => (
+                     <li key={idx} className="text-slate-400 text-sm leading-relaxed flex gap-2 items-start">
+                       <span className="text-accent mt-1">•</span>
+                       <span>{note}</span>
+                     </li>
+                   ))}
+                 </ul>
               </div>
             </div>
           </Section>
