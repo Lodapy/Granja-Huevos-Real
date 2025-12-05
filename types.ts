@@ -38,11 +38,9 @@ export interface StrategyStage {
   description: string[];
 }
 
-export interface UnitMetrics {
-  costPerBird: { label: string, value: string };
-  opCostEgg: { label: string, value: string };
-  totalCostEgg: { label: string, value: string };
-  annualProd: { label: string, value: string };
+export interface UnitMetric {
+  label: string;
+  value: string;
 }
 
 export interface ContentHeader {
@@ -67,8 +65,7 @@ export interface ContentCapex {
   tableHeaders: string[];
   items: InvestmentItem[];
   totalLabel: string;
-  investorNotesTitle: string;
-  investorNotes: string[];
+  note: string;
 }
 
 export interface ContentOpex {
@@ -77,8 +74,9 @@ export interface ContentOpex {
   tableTitle: string;
   tableHeaders: string[];
   items: InvestmentItem[];
+  totalLabel: string;
   unitMetricsTitle: string;
-  unitMetrics: UnitMetrics;
+  unitMetrics: UnitMetric[];
   note: string;
 }
 

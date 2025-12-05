@@ -1,7 +1,8 @@
 
 import { Content, Language } from './types';
 
-export const TOTAL_INVESTMENT = 1903488000;
+export const TOTAL_INVESTMENT = 2039835000;
+export const TOTAL_OPEX = 5071968000;
 export const EXCHANGE_RATE = 6950;
 export const CONTACT_EMAIL = "inversiones@granjarural.com";
 
@@ -42,82 +43,87 @@ export const CONTENT: Record<Language, Content> = {
       keyPointText: "Con los precios actuales de alimento comercial por gallina, el proyecto muestra que el costo por huevo se acerca al nivel de los precios de venta tradicionales del mercado. Por eso, el modelo se plantea en dos fases: una fase inicial de operación con alimento comercial (para aprender, ajustar y estabilizar la producción) y una fase de integración hacia atrás con formulación propia de raciones, que permite bajar de forma estructural el costo por huevo y volver el proyecto altamente rentable."
     },
     capex: {
-      title: "Inversión inicial (CAPEX) – Construcción de galpones incluida",
-      subtitle: "La inversión inicial contempla la construcción de tres galpones de 125 m × 12 m, con un costo total de USD 120.000 (equivalente a 888.000.000 Gs al tipo de cambio de referencia), además de la compra de las 36.000 ponedoras y los equipos productivos asociados.",
-      tableTitle: "Detalle de inversión inicial",
-      tableHeaders: ["Categoría", "Monto (Gs)"],
-      items: [
-        {
-          category: "Construcción de 3 galpones (USD 120.000)",
-          amount: 888000000,
-          details: []
-        },
-        {
-          category: "Compra de 36.000 ponedoras (Gs 9.400/ave)",
-          amount: 338400000,
-          details: []
-        },
-        {
-            category: "Equipos y sistemas productivos (ventilación, bebederos, etc.)",
-            amount: 677088000,
-            details: []
-        }
-      ],
-      totalLabel: "Total CAPEX del proyecto",
-      investorNotesTitle: "Notas para el inversor",
-      investorNotes: [
-        "El costo de galpones se expresa en dólares por tratarse de obra civil.",
-        "El CAPEX se recupera en el primer ciclo productivo en escenarios ≥ 500 Gs/huevo.",
-        "El diseño es modular y permite ampliar la capacidad por bloques de 12.000 aves."
-      ]
-    },
-    opex: {
-      title: "Costos operativos anuales (OPEX) con sanidad real",
-      subtitle: "Los costos operativos se calculan en base a precios actuales de balanceados por fase y a un esquema sanitario de 7 visitas por lote, con vacunas y vitaminas incluidas a razón de 500 Gs por pollito por visita.",
-      tableTitle: "Estructura de costos operativos (anual)",
-      tableHeaders: ["Concepto", "Monto Gs/año", "Monto USD/año"],
+      title: "Inversión Inicial (Gastos de Capital)",
+      subtitle: "La inversión se concentra en infraestructura galponera y adquisición de las 36.000 ponedoras.",
+      tableTitle: "Detalle de Inversión",
+      tableHeaders: ["Categoría", "Monto (Gs)", "Monto (USD)"],
       items: [
         { 
-          category: "Alimento (todas las fases)", 
-          amount: 4729968000,
+          category: "Infraestructura (3 galpones completos)", 
+          amount: 955947000,
           details: [
-            { name: "Consumo ciclo", value: "50,7 kg / ave" },
-            { name: "Costo promedio", value: "Variável por fase" }
+            { name: "3 Galpones 125x12m", value: "Estructura completa" },
+            { name: "Equipamento", value: "Comederos, Bebederos, Silos" },
+            { name: "Montaje Eléctrico", value: "Tableros y Generador" }
           ]
         },
         { 
-          category: "Sanidad (7 visitas x 500 Gs)", 
+          category: "Compra de 36.000 ponedoras + despique", 
+          amount: 406800000,
+          details: [
+            { name: "36.000 Ponedoras", value: "Genética Hi-Line Brown" },
+            { name: "Costo unitario", value: "Gs 9.400 / ave" },
+            { name: "Servicio de Despique", value: "Incluido" }
+          ]
+        },
+        {
+            category: "Capital de Trabajo e Imprevistos",
+            amount: 677088000,
+            details: [
+                { name: "Alimento Inicial", value: "Fase arranque" },
+                { name: "Gastos Pre-operativos", value: "Permisos y Gestión" }
+            ]
+        }
+      ],
+      totalLabel: "Total Gastos de Capital",
+      note: "El valor por gallina (Gs 9.400) refleja precios actuales. El CAPEX se recupera dentro del primer ciclo productivo. Cambio ref: 6.950 Gs/USD."
+    },
+    opex: {
+      title: "Costos operativos anuales (OPEX) con sanidad real",
+      subtitle: "Costos calculados con precios actuales de balanceados por fase y con un esquema sanitario de 7 visitas por lote, a 500 Gs por pollito, incluyendo vacunas y vitaminas.",
+      tableTitle: "Estructura de costos operativos (anual)",
+      tableHeaders: ["Concepto", "Monto (Gs/año)", "Monto (USD/año)"],
+      items: [
+        { 
+          category: "Alimento total ciclo completo", 
+          amount: 4729968000,
+          details: [
+            { name: "Consumo", value: "50,7 kg / ave (ciclo)" },
+            { name: "Fases", value: "Iniciador a Postura" }
+          ]
+        },
+        { 
+          category: "Sanidad (7 visitas × 500 Gs)", 
           amount: 126000000,
           details: [
             { name: "Costo/ave", value: "3.500 Gs" },
-            { name: "Incluye", value: "Vacunas + Vitaminas" }
+            { name: "Cobertura", value: "Vacunas + Vitaminas" }
           ]
         },
         { 
           category: "Mano de obra (6 personas)", 
           amount: 216000000,
           details: [
-            { name: "Equipo", value: "6 Operarios" },
-            { name: "Cargas sociales", value: "Incluidas" }
+            { name: "Personal", value: "Operarios de campo" }
           ]
         }
       ],
-      unitMetricsTitle: "Indicadores unitarios actualizados",
-      unitMetrics: {
-        costPerBird: { label: "Costo alimento/ave", value: "≈ Gs 131.388" },
-        opCostEgg: { label: "Costo alimento/huevo", value: "≈ Gs 313" },
-        totalCostEgg: { label: "Costo op. total/huevo", value: "≈ Gs 335" },
-        annualProd: { label: "Producción Estimada", value: "15.120.000 un." }
-      },
-      note: "Nota: El costo sanitario de 3.500 Gs/ave permite proteger el plantel sin presionar significativamente el costo unitario."
+      totalLabel: "Total OPEX anual real",
+      unitMetricsTitle: "Indicadores unitarios",
+      unitMetrics: [
+        { label: "Costo alimento por gallina", value: "≈ 131.388 Gs" },
+        { label: "Costo operativo total por huevo", value: "≈ 335 Gs" },
+        { label: "Producción", value: "15.120.000 huevos/año" }
+      ],
+      note: "Costo sanitario por gallina: 3.500 Gs (7 visitas × 500 Gs)."
     },
     scenarios: {
       title: "Escenarios de precio y rentabilidad (con OPEX real actualizado)",
-      subtitle: "Rentabilidad calculada con costo operativo anual total de Gs 5.071.968.000 (incluye sanidad real).",
+      subtitle: "Rentabilidade calculada con costo operativo anual total de Gs 5.071.968.000 (incluye sanidad real).",
       items: [
-        { name: "Conservador", price: 400, utility: 976032000, roi: "≈ 48 %", payback: "25 meses", type: 'conservative' },
-        { name: "Realista", price: 500, utility: 2488032000, roi: "≈ 122 %", payback: "9,8 meses", type: 'realistic' },
-        { name: "Optimista", price: 650, utility: 4756032000, roi: "≈ 233 %", payback: "5,1 meses", type: 'optimistic' }
+        { name: "Conservador", price: 400, utility: 976032000, roi: "≈ 48 %", payback: "≈ 25 meses", type: 'conservative' },
+        { name: "Realista", price: 500, utility: 2488032000, roi: "≈ 122 %", payback: "≈ 9,8 meses", type: 'realistic' },
+        { name: "Optimista", price: 650, utility: 4756032000, roi: "≈ 233 %", payback: "≈ 5,1 meses", type: 'optimistic' }
       ],
       labels: {
         scenario: "Escenario",
@@ -206,82 +212,87 @@ export const CONTENT: Record<Language, Content> = {
       keyPointText: "Com os preços atuais de ração comercial por galinha, o projeto mostra que o custo por ovo se aproxima do nível dos preços de venda tradicionais do mercado. Por isso, o modelo é planejado em duas fases: uma fase inicial de operação com ração comercial (para aprender, ajustar e estabilizar a produção) e uma fase de integração para trás com formulação própria de rações, que permite baixar de forma estrutural o custo por ovo e tornar o projeto altamente rentável."
     },
     capex: {
-      title: "Investimento inicial (CAPEX) – Construção de galpões incluída",
-      subtitle: "O investimento inicial contempla a construção de três galpões de 125 m × 12 m, com um custo total de USD 120.000 (equivalente a 888.000.000 Gs ao câmbio de referência), além da compra de 36.000 poedeiras e equipamentos produtivos associados.",
-      tableTitle: "Detalhe de investimento inicial",
-      tableHeaders: ["Categoria", "Valor (Gs)"],
+      title: "Investimento Inicial (Despesas de Capital)",
+      subtitle: "O investimento concentra-se em infraestrutura de galpões e aquisição de 36.000 poedeiras.",
+      tableTitle: "Detalhe de Investimento",
+      tableHeaders: ["Categoria", "Valor (Gs)", "Valor (USD)"],
       items: [
-        {
-          category: "Construção de 3 galpões (USD 120.000)",
-          amount: 888000000,
-          details: []
+        { 
+          category: "Infraestrutura (3 galpões completos)", 
+          amount: 955947000,
+          details: [
+            { name: "3 Galpões 125x12m", value: "Estrutura completa" },
+            { name: "Equipamento", value: "Comedouros, Bebedouros, Silos" },
+            { name: "Montagem Elétrica", value: "Quadros e Gerador" }
+          ]
+        },
+        { 
+          category: "Compra de 36.000 poedeiras + debicagem", 
+          amount: 406800000,
+          details: [
+            { name: "36.000 Poedeiras", value: "Genética Hi-Line Brown" },
+            { name: "Custo unitário", value: "Gs 9.400 / ave" },
+            { name: "Serviço de Debicagem", value: "Incluído" }
+          ]
         },
         {
-          category: "Compra de 36.000 poedeiras (Gs 9.400/ave)",
-          amount: 338400000,
-          details: []
-        },
-        {
-            category: "Equipamentos e sistemas produtivos (ventilação, bebedouros, etc.)",
+            category: "Capital de Giro e Imprevistos",
             amount: 677088000,
-            details: []
+            details: [
+                { name: "Ração Inicial", value: "Fase arranque" },
+                { name: "Despesas Pré-operacionais", value: "Licenças e Gestão" }
+            ]
         }
       ],
-      totalLabel: "Total CAPEX do projeto",
-      investorNotesTitle: "Notas para o investidor",
-      investorNotes: [
-        "O custo de galpões é expresso em dólares por tratar-se de obra civil.",
-        "O CAPEX é recuperado no primeiro ciclo produtivo em cenários ≥ 500 Gs/ovo.",
-        "O design é modular e permite ampliar a capacidade por blocos de 12.000 aves."
-      ]
+      totalLabel: "Total Despesas de Capital",
+      note: "O valor por galinha (Gs 9.400) reflete preços atuais. O CAPEX é recuperado dentro do primeiro ciclo produtivo. Câmbio ref: 6.950 Gs/USD."
     },
     opex: {
       title: "Custos operacionais anuais (OPEX) com sanidade real",
-      subtitle: "Os custos operacionais são calculados com base em preços atuais de rações por fase e um esquema sanitário de 7 visitas por lote, com vacinas e vitaminas incluídas a razão de 500 Gs por pintinho por visita.",
+      subtitle: "Custos calculados com preços atuais de rações por fase e com um esquema sanitário de 7 visitas por lote, a 500 Gs por pintinho, incluindo vacinas e vitaminas.",
       tableTitle: "Estrutura de custos operacionais (anual)",
       tableHeaders: ["Conceito", "Valor Gs/ano", "Valor USD/ano"],
       items: [
         { 
-          category: "Ração (todas as fases)", 
+          category: "Ração total ciclo completo", 
           amount: 4729968000,
           details: [
-            { name: "Consumo ciclo", value: "50,7 kg / ave" },
-            { name: "Custo médio", value: "Variável por fase" }
+            { name: "Consumo", value: "50,7 kg / ave (ciclo)" },
+            { name: "Fases", value: "Inicial a Postura" }
           ]
         },
         { 
-          category: "Sanidade (7 visitas x 500 Gs)", 
+          category: "Sanidade (7 visitas × 500 Gs)", 
           amount: 126000000,
           details: [
             { name: "Custo/ave", value: "3.500 Gs" },
-            { name: "Inclui", value: "Vacinas + Vitaminas" }
+            { name: "Cobertura", value: "Vacinas + Vitaminas" }
           ]
         },
         { 
           category: "Mão de obra (6 pessoas)", 
           amount: 216000000,
           details: [
-            { name: "Equipe", value: "6 Operários" },
-            { name: "Encargos sociais", value: "Incluídos" }
+            { name: "Pessoal", value: "Operários de campo" }
           ]
         }
       ],
-      unitMetricsTitle: "Indicadores unitários atualizados",
-      unitMetrics: {
-        costPerBird: { label: "Custo ração/ave", value: "≈ Gs 131.388" },
-        opCostEgg: { label: "Custo ração/ovo", value: "≈ Gs 313" },
-        totalCostEgg: { label: "Custo op. total/ovo", value: "≈ Gs 335" },
-        annualProd: { label: "Produção Estimada", value: "15.120.000 un." }
-      },
-      note: "Nota: O custo sanitário de 3.500 Gs/ave permite proteger o plantel sem pressionar significativamente o custo unitário."
+      totalLabel: "Total OPEX anual real",
+      unitMetricsTitle: "Indicadores unitários",
+      unitMetrics: [
+        { label: "Custo ração por galinha", value: "≈ 131.388 Gs" },
+        { label: "Custo op. total por ovo", value: "≈ 335 Gs" },
+        { label: "Produção", value: "15.120.000 ovos/ano" }
+      ],
+      note: "Custo sanitário por galinha: 3.500 Gs (7 visitas × 500 Gs)."
     },
     scenarios: {
       title: "Cenários de preço e rentabilidade (com OPEX real atualizado)",
       subtitle: "Rentabilidade calculada com custo operacional anual total de Gs 5.071.968.000 (inclui sanidade real).",
       items: [
-        { name: "Conservador", price: 400, utility: 976032000, roi: "≈ 48 %", payback: "25 meses", type: 'conservative' },
-        { name: "Realista", price: 500, utility: 2488032000, roi: "≈ 122 %", payback: "9,8 meses", type: 'realistic' },
-        { name: "Otimista", price: 650, utility: 4756032000, roi: "≈ 233 %", payback: "5,1 meses", type: 'optimistic' }
+        { name: "Conservador", price: 400, utility: 976032000, roi: "≈ 48 %", payback: "≈ 25 meses", type: 'conservative' },
+        { name: "Realista", price: 500, utility: 2488032000, roi: "≈ 122 %", payback: "≈ 9,8 meses", type: 'realistic' },
+        { name: "Otimista", price: 650, utility: 4756032000, roi: "≈ 233 %", payback: "≈ 5,1 meses", type: 'optimistic' }
       ],
       labels: {
         scenario: "Cenário",
