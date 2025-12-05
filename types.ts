@@ -81,6 +81,13 @@ export interface ContentOpex {
   note: string;
 }
 
+export interface ScenarioInterpretation {
+  title: string;
+  text: string;
+  bullets: string[];
+  conclusion: string;
+}
+
 export interface ContentScenarios {
   title: string;
   subtitle: string;
@@ -91,12 +98,8 @@ export interface ContentScenarios {
     payback: string;
     annualUtility: string;
     roi: string;
-    chartTitle: string;
-    chartX: string;
-    chartTooltipUtility: string;
-    months: string;
   };
-  chartNote: string;
+  interpretation: ScenarioInterpretation;
 }
 
 export interface ContentStrategy {

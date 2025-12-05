@@ -11,7 +11,7 @@ export const CONTENT: Record<Language, Content> = {
       badge: "Proyecto de inversión · Producción avícola · Datos 2025",
       titleStart: "Granja de Ponedoras",
       titleHighlight: "36.000 aves",
-      description: "Proyecto en Ciudad del Este, Paraguay. Alimentación basada en precios reales de mercado (Dic 2025). Modelo diseñado para alto retorno y flujo de caja rápido.",
+      description: "Proyecto en Ciudad del Este, Paraguay. Alimentación basada en precios reales de balanceados por fase (Dic 2025). Modelo diseñado para alto retorno y flujo de caja rápido.",
       kpis: [
         {
           label: "Inversión inicial (Gastos de Capital)",
@@ -25,34 +25,34 @@ export const CONTENT: Record<Language, Content> = {
         },
         {
           label: "Payback estimado",
-          value: "3,9 a 9,5 meses",
+          value: "5 a 25 meses",
           subtext: "Según precio de venta"
         },
         {
           label: "ROI anual proyectado",
-          value: "126 % – 311 %",
-          subtext: "Con costo real de alimento comercial"
+          value: "48 % – 233 %",
+          subtext: "Con costos actuales de balanceados"
         }
       ]
     },
     summary: {
       title: "Resumen Ejecutivo",
-      text: "El proyecto “Huevos Granjeros” consiste en la implantación de tres galpones de 125 m x 12 m cada uno, para alojar un total de 36.000 ponedoras Hi-Line Brown. El diseño contempla alimentación balanceada comercial (precio promedio actual de Gs 2.020/kg), ventilación de presión positiva y protocolos de bioseguridad.",
+      text: "El proyecto “Huevos Granjeros” consiste en la implantación de tres galpones de 125 m x 12 m cada uno, para alojar un total de 36.000 ponedoras Hi-Line Brown. El diseño contempla alimentación con balanceados comerciales específicos por fase (iniciador, crecimiento, pre-postura y postura), con precios actualizados al mercado paraguayo 2025, ventilación de presión positiva y protocolos de bioseguridad.",
       keyPointTitle: "Conclusión ejecutiva",
-      keyPointText: "Con un costo de alimento real de Gs 2.020/kg y producción de 420 huevos/ave, el proyecto presenta un ROI anual > 126% y recupera la inversión en menos de un año en todos los escenarios."
+      keyPointText: "Con los precios actuales de alimento comercial por gallina, el proyecto muestra que el costo por huevo se acerca al nivel de los precios de venta tradicionales del mercado. Por eso, el modelo se plantea en dos fases: una fase inicial de operación con alimento comercial (para aprender, ajustar y estabilizar la producción) y una fase de integración hacia atrás con formulación propia de raciones, que permite bajar de forma estructural el costo por huevo y volver el proyecto altamente rentable."
     },
     capex: {
       title: "Inversión Inicial (Gastos de Capital)",
-      subtitle: "La inversión se concentra en infraestructura y activos biológicos amortizáveis.",
+      subtitle: "La inversión se concentra en infraestructura galponera y adquisición de las 36.000 ponedoras.",
       tableTitle: "Detalle de Inversión",
       tableHeaders: ["Categoría", "Monto (Gs)", "Monto (USD)"],
       items: [
         { 
-          category: "Infraestructura (3 galpones)", 
+          category: "Infraestrutura (3 galpones)", 
           amount: 955947000,
           details: [
             { name: "3 Galpones 125x12m", value: "Estructura completa" },
-            { name: "Equipamiento", value: "Comederos, Bebederos, Silos" },
+            { name: "Equipamento", value: "Comederos, Bebederos, Silos" },
             { name: "Montaje Eléctrico", value: "Tableros y Generador" }
           ]
         },
@@ -61,8 +61,8 @@ export const CONTENT: Record<Language, Content> = {
           amount: 406800000,
           details: [
             { name: "36.000 Ponedoras", value: "Genética Hi-Line Brown" },
-            { name: "Servicio de Despique", value: "Incluido" },
-            { name: "Logística", value: "Puesto en granja" }
+            { name: "Costo unitario", value: "Gs 9.400 / ave" },
+            { name: "Servicio de Despique", value: "Incluido" }
           ]
         },
         {
@@ -75,33 +75,32 @@ export const CONTENT: Record<Language, Content> = {
         }
       ],
       totalLabel: "Total Gastos de Capital",
-      note: "El modelo es modular: cada módulo de 12.000 aves puede replicarse según demanda. Cambio ref: 6.950 Gs/USD."
+      note: "El valor por gallina (Gs 9.400) refleja precios actuales. El CAPEX se recupera dentro del primer ciclo productivo. Cambio ref: 6.950 Gs/USD."
     },
     opex: {
-      title: "Costos Operativos (Gastos Operacionales) con Alimento Real",
-      subtitle: "Cálculos basados en precios de mercado de Diciembre 2025 (Gs 2.020/kg promedio).",
-      tableTitle: "Estructura de Costos Anual",
-      tableHeaders: ["Categoría", "Total (Gs)", "Total (USD)"],
+      title: "Costos operativos anuales (OPEX) con sanidad real",
+      subtitle: "Los costos operativos se calculan en base a precios actuales de balanceados por fase y a un esquema sanitario de 7 visitas por lote, con vacunas y vitaminas incluidas a razón de 500 Gs por pollito por visita.",
+      tableTitle: "Estructura de costos operativos (anual)",
+      tableHeaders: ["Concepto", "Monto Gs/año", "Monto USD/año"],
       items: [
         { 
-          category: "Alimento Comercial", 
-          amount: 3054240000,
+          category: "Alimento (todas las fases)", 
+          amount: 4729968000,
           details: [
-            { name: "Consumo anual", value: "1.512.000 kg" },
-            { name: "Precio promedio", value: "2.020 Gs/kg" },
-            { name: "Marca ref.", value: "Surmix / Genérico" }
+            { name: "Consumo ciclo", value: "50,7 kg / ave" },
+            { name: "Costo promedio", value: "Variável por fase" }
           ]
         },
         { 
-          category: "Sanidad", 
-          amount: 208800000,
+          category: "Sanidad (7 visitas x 500 Gs)", 
+          amount: 126000000,
           details: [
-            { name: "Vacunación", value: "Plan completo" },
-            { name: "Suplementos", value: "Vitaminas" }
+            { name: "Costo/ave", value: "3.500 Gs" },
+            { name: "Incluye", value: "Vacunas + Vitaminas" }
           ]
         },
         { 
-          category: "Mano de obra", 
+          category: "Mano de obra (6 personas)", 
           amount: 216000000,
           details: [
             { name: "Equipo", value: "6 Operarios" },
@@ -109,60 +108,64 @@ export const CONTENT: Record<Language, Content> = {
           ]
         }
       ],
-      unitMetricsTitle: "Indicadores Unitarios",
+      unitMetricsTitle: "Indicadores unitarios actualizados",
       unitMetrics: {
-        costPerBird: { label: "Consumo anual/ave", value: "42 kg" },
-        opCostEgg: { label: "Costo alimento/huevo", value: "~ Gs 202" },
-        totalCostEgg: { label: "Costo operativo total/huevo", value: "~ Gs 230" },
-        annualProd: { label: "Producción Anual", value: "15.120.000 un." }
+        costPerBird: { label: "Costo alimento/ave", value: "≈ Gs 131.388" },
+        opCostEgg: { label: "Costo alimento/huevo", value: "≈ Gs 313" },
+        totalCostEgg: { label: "Costo op. total/huevo", value: "≈ Gs 335" },
+        annualProd: { label: "Producción Estimada", value: "15.120.000 un." }
       },
-      note: "El alimento representa el 70–75 % del costo operativo. Datos validados con proveedores locales (Surmix, Agrofértil)."
+      note: "Nota: El costo sanitario de 3.500 Gs/ave permite proteger el plantel sin presionar significativamente el costo unitario."
     },
     scenarios: {
-      title: "Escenarios Financieros",
-      subtitle: "Rentabilidad calculada con costo de alimento real comercial.",
+      title: "Escenarios de precio y rentabilidad (con OPEX real actualizado)",
+      subtitle: "Rentabilidad calculada con costo operativo anual total de Gs 5.071.968.000 (incluye sanidad real).",
       items: [
-        { name: "Conservador", price: 400, utility: 2568960000, roi: "126 %", payback: "9,5 meses", type: 'conservative' },
-        { name: "Realista", price: 500, utility: 4080960000, roi: "200 %", payback: "6,0 meses", type: 'realistic' },
-        { name: "Optimista", price: 650, utility: 6348960000, roi: "311 %", payback: "3,9 meses", type: 'optimistic' }
+        { name: "Conservador", price: 400, utility: 976032000, roi: "≈ 48 %", payback: "25 meses", type: 'conservative' },
+        { name: "Realista", price: 500, utility: 2488032000, roi: "≈ 122 %", payback: "9,8 meses", type: 'realistic' },
+        { name: "Optimista", price: 650, utility: 4756032000, roi: "≈ 233 %", payback: "5,1 meses", type: 'optimistic' }
       ],
       labels: {
         scenario: "Escenario",
         price: "Precio Huevo",
         payback: "Payback",
         annualUtility: "Utilidad Anual",
-        roi: "ROI",
-        chartTitle: "Proyección de Utilidad Anual",
-        chartX: "Utilidad Anual Estimada (Gs)",
-        chartTooltipUtility: "Utilidad",
-        months: "meses"
+        roi: "ROI"
       },
-      chartNote: 'Incluso en el escenario conservador (Gs 400), se recupera la inversión en menos de 10 meses.'
+      interpretation: {
+        title: "Lectura financiera para el inversor",
+        text: "Con un costo operativo total aproximado de 335 Gs por huevo, el punto de equilibrio del proyecto se sitúa ligeramente por encima de este valor. A partir de 400 Gs por huevo, el negocio ya genera utilidad positiva.",
+        bullets: [
+          "A 400 Gs/huevo, el proyecto es rentable con un retorno más lento (≈ 2 años).",
+          "A 500 Gs/huevo, la inversión se recupera en menos de 10 meses.",
+          "A 650 Gs/huevo, el payback se aproxima a 5 meses, con un ROI muy agresivo."
+        ],
+        conclusion: "Estos escenarios confirman que el proyecto mantiene rentabilidad incluso bajo precios conservadores y se vuelve extraordinariamente atractivo en contextos normales y altos de mercado."
+      }
     },
     strategy: {
       title: "Recomendación Estratégica",
-      subtitle: "Análisis comparativo: Alimento Comercial vs. Formulación Propia",
+      subtitle: "Fase 1 (Comercial) vs Fase 2 (Formulación Propia)",
       stages: [
         {
-          title: "Opción A: Alimento Comercial",
+          title: "Fase 1: Balanceado Comercial",
           description: [
-            "Ventajas: Calidad consistente, menor inversión inicial, logística simple.",
-            "Costo actual: ~ Gs 2.020 / kg.",
-            "Impacto: Costo huevo ~ Gs 280-320."
+            "Inicio con balanceados diferenciados por fase.",
+            "Beneficio: Calidad estable, simplicidad logística.",
+            "Objetivo: Estabilizar flujo de caja (6-9 meses)."
           ]
         },
         {
-          title: "Opción B: Formulación Propia",
+          title: "Fase 2: Formulación Propia",
           description: [
-            "Ventajas: Reducción de costo (25-30%), control de calidad, independencia.",
-            "Insumos: Maíz (1.300 Gs/kg), Soja (2.200 Gs/kg).",
-            "Costo estimado: ~ Gs 1.500 / kg.",
-            "Impacto: Costo huevo ~ Gs 230-260."
+            "Inversión en molino y silos tras estabilización.",
+            "Reducción potencial de custo: 25% - 30%.",
+            "Ahorro anual estimado: Gs 1.200 - 1.400 millones."
           ]
         }
       ],
       recommendationTitle: "Estrategia Recomendada",
-      recommendationText: "Iniciar con alimento comercial para reducir riesgos operativos en el arranque. Al alcanzar escala estable, invertir en planta de balanceado propia para capturar un 30% adicional de margen."
+      recommendationText: "Arrancar con balanceado comercial para minimizar el riesgo operativo inicial, y utilizar los datos reales para diseñar una transición controlada hacia formulación propia."
     },
     footer: {
       title: "¿Listo para invertir en seguridad alimentaria?",
@@ -178,7 +181,7 @@ export const CONTENT: Record<Language, Content> = {
       badge: "Projeto de investimento · Produção avícola · Dados 2025",
       titleStart: "Ovos de galinha",
       titleHighlight: "36.000 aves",
-      description: "Projeto em Ciudad del Este, Paraguai. Alimentação baseada em preços reais de mercado (Dez 2025). Modelo desenhado para alto retorno e fluxo de caixa rápido.",
+      description: "Projeto em Ciudad del Este, Paraguai. Alimentação baseada em preços reais de ração por fase (Dez 2025). Modelo desenhado para alto retorno e fluxo de caixa rápido.",
       kpis: [
         {
           label: "Investimento inicial (Despesas de Capital)",
@@ -192,25 +195,25 @@ export const CONTENT: Record<Language, Content> = {
         },
         {
           label: "Payback estimado",
-          value: "3,9 a 9,5 meses",
+          value: "5 a 25 meses",
           subtext: "Conforme preço de venda"
         },
         {
           label: "ROI anual projetado",
-          value: "126 % – 311 %",
-          subtext: "Com custo real de ração comercial"
+          value: "48 % – 233 %",
+          subtext: "Com custos atuais de ração"
         }
       ]
     },
     summary: {
       title: "Resumo Executivo",
-      text: "O projeto “Ovos de Granja” consiste na implantação de três galpões de 125 m x 12 m cada, para alojar um total de 36.000 poedeiras Hi-Line Brown. O design contempla ração balanceada comercial (preço médio atual de Gs 2.020/kg), ventilação de pressão positiva e protocolos de biossegurança.",
+      text: "O projeto “Ovos de Granja” consiste na implantação de três galpões de 125 m x 12 m cada, para alojar um total de 36.000 poedeiras Hi-Line Brown. O design contempla alimentação com rações comerciais específicas por fase (inicial, crescimento, pré-postura e postura), com preços atualizados ao mercado paraguaio 2025.",
       keyPointTitle: "Conclusão executiva",
-      keyPointText: "Com um custo de ração real de Gs 2.020/kg e produção de 420 ovos/ave, o projeto apresenta um ROI anual > 126% e recupera o investimento em menos de um ano em todos os cenários."
+      keyPointText: "Com os preços atuais de ração comercial por galinha, o projeto mostra que o custo por ovo se aproxima do nível dos preços de venda tradicionais do mercado. Por isso, o modelo é planejado em duas fases: uma fase inicial de operação com ração comercial (para aprender, ajustar e estabilizar a produção) e uma fase de integração para trás com formulação própria de rações, que permite baixar de forma estrutural o custo por ovo e tornar o projeto altamente rentável."
     },
     capex: {
       title: "Investimento Inicial (Despesas de Capital)",
-      subtitle: "O investimento concentra-se em infraestrutura e ativos biológicos amortizáveis.",
+      subtitle: "O investimento concentra-se em infraestrutura de galpões e aquisição de 36.000 poedeiras.",
       tableTitle: "Detalhe de Investimento",
       tableHeaders: ["Categoria", "Valor (Gs)", "Valor (USD)"],
       items: [
@@ -228,8 +231,8 @@ export const CONTENT: Record<Language, Content> = {
           amount: 406800000,
           details: [
             { name: "36.000 Poedeiras", value: "Genética Hi-Line Brown" },
-            { name: "Serviço de Debicagem", value: "Incluído" },
-            { name: "Logística", value: "Posto na granja" }
+            { name: "Custo unitário", value: "Gs 9.400 / ave" },
+            { name: "Serviço de Debicagem", value: "Incluído" }
           ]
         },
         {
@@ -242,33 +245,32 @@ export const CONTENT: Record<Language, Content> = {
         }
       ],
       totalLabel: "Total Despesas de Capital",
-      note: "O modelo é modular: cada módulo de 12.000 aves pode ser replicado conforme demanda. Câmbio ref: 6.950 Gs/USD."
+      note: "O valor por galinha (Gs 9.400) reflete preços atuais. O CAPEX é recuperado dentro do primeiro ciclo produtivo. Câmbio ref: 6.950 Gs/USD."
     },
     opex: {
-      title: "Custos Operacionais (Despesas Operacionais) com Ração Real",
-      subtitle: "Cálculos baseados em preços de mercado de Dezembro 2025 (Gs 2.020/kg médio).",
-      tableTitle: "Estrutura de Custos Anual",
-      tableHeaders: ["Categoria", "Total (Gs)", "Total (USD)"],
+      title: "Custos operacionais anuais (OPEX) com sanidade real",
+      subtitle: "Os custos operacionais são calculados com base em preços atuais de rações por fase e um esquema sanitário de 7 visitas por lote, com vacinas e vitaminas incluídas a razão de 500 Gs por pintinho por visita.",
+      tableTitle: "Estrutura de custos operacionais (anual)",
+      tableHeaders: ["Conceito", "Valor Gs/ano", "Valor USD/ano"],
       items: [
         { 
-          category: "Ração Comercial", 
-          amount: 3054240000,
+          category: "Ração (todas as fases)", 
+          amount: 4729968000,
           details: [
-            { name: "Consumo anual", value: "1.512.000 kg" },
-            { name: "Preço médio", value: "2.020 Gs/kg" },
-            { name: "Marca ref.", value: "Surmix / Genérico" }
+            { name: "Consumo ciclo", value: "50,7 kg / ave" },
+            { name: "Custo médio", value: "Variável por fase" }
           ]
         },
         { 
-          category: "Sanidade", 
-          amount: 208800000,
+          category: "Sanidade (7 visitas x 500 Gs)", 
+          amount: 126000000,
           details: [
-            { name: "Vacinação", value: "Plano completo" },
-            { name: "Suplementos", value: "Vitaminas" }
+            { name: "Custo/ave", value: "3.500 Gs" },
+            { name: "Inclui", value: "Vacinas + Vitaminas" }
           ]
         },
         { 
-          category: "Mão de obra", 
+          category: "Mão de obra (6 pessoas)", 
           amount: 216000000,
           details: [
             { name: "Equipe", value: "6 Operários" },
@@ -276,60 +278,64 @@ export const CONTENT: Record<Language, Content> = {
           ]
         }
       ],
-      unitMetricsTitle: "Indicadores Unitarios",
+      unitMetricsTitle: "Indicadores unitários atualizados",
       unitMetrics: {
-        costPerBird: { label: "Consumo anual/ave", value: "42 kg" },
-        opCostEgg: { label: "Custo ração/ovo", value: "~ Gs 202" },
-        totalCostEgg: { label: "Custo operacional total/ovo", value: "~ Gs 230" },
-        annualProd: { label: "Produção Anual", value: "15.120.000 un." }
+        costPerBird: { label: "Custo ração/ave", value: "≈ Gs 131.388" },
+        opCostEgg: { label: "Custo ração/ovo", value: "≈ Gs 313" },
+        totalCostEgg: { label: "Custo op. total/ovo", value: "≈ Gs 335" },
+        annualProd: { label: "Produção Estimada", value: "15.120.000 un." }
       },
-      note: "A ração representa 70–75% do custo operacional. Dados validados com fornecedores locais (Surmix, Agrofértil)."
+      note: "Nota: O custo sanitário de 3.500 Gs/ave permite proteger o plantel sem pressionar significativamente o custo unitário."
     },
     scenarios: {
-      title: "Cenários Financeiros",
-      subtitle: "Rentabilidade calculada com custo de ração real comercial.",
+      title: "Cenários de preço e rentabilidade (com OPEX real atualizado)",
+      subtitle: "Rentabilidade calculada com custo operacional anual total de Gs 5.071.968.000 (inclui sanidade real).",
       items: [
-        { name: "Conservador", price: 400, utility: 2568960000, roi: "126 %", payback: "9,5 meses", type: 'conservative' },
-        { name: "Realista", price: 500, utility: 4080960000, roi: "200 %", payback: "6,0 meses", type: 'realistic' },
-        { name: "Otimista", price: 650, utility: 6348960000, roi: "311 %", payback: "3,9 meses", type: 'optimistic' }
+        { name: "Conservador", price: 400, utility: 976032000, roi: "≈ 48 %", payback: "25 meses", type: 'conservative' },
+        { name: "Realista", price: 500, utility: 2488032000, roi: "≈ 122 %", payback: "9,8 meses", type: 'realistic' },
+        { name: "Otimista", price: 650, utility: 4756032000, roi: "≈ 233 %", payback: "5,1 meses", type: 'optimistic' }
       ],
       labels: {
         scenario: "Cenário",
         price: "Preço Ovo",
         payback: "Payback",
         annualUtility: "Lucro Anual",
-        roi: "ROI",
-        chartTitle: "Projeção de Lucro Anual",
-        chartX: "Lucro Anual Estimado (Gs)",
-        chartTooltipUtility: "Lucro",
-        months: "meses"
+        roi: "ROI"
       },
-      chartNote: 'Mesmo no cenário conservador (Gs 400), recupera-se o investimento em menos de 10 meses.'
+      interpretation: {
+        title: "Leitura financeira para o investidor",
+        text: "Com um custo operacional total aproximado de 335 Gs por ovo, o ponto de equilíbrio do projeto situa-se ligeiramente acima deste valor. A partir de 400 Gs por ovo, o negócio já gera lucro positivo.",
+        bullets: [
+          "A 400 Gs/ovo, o projeto é rentável com um retorno mais lento (≈ 2 anos).",
+          "A 500 Gs/ovo, o investimento é recuperado em menos de 10 meses.",
+          "A 650 Gs/ovo, o payback aproxima-se de 5 meses, com um ROI muito agressivo."
+        ],
+        conclusion: "Estes cenários confirmam que o projeto mantém rentabilidade mesmo sob preços conservadores e torna-se extraordinariamente atrativo em contextos normais e altos de mercado."
+      }
     },
     strategy: {
       title: "Recomendação Estratégica",
-      subtitle: "Análise comparativa: Ração Comercial vs. Formulação Própria",
+      subtitle: "Fase 1 (Comercial) vs Fase 2 (Formulação Própria)",
       stages: [
         {
-          title: "Opção A: Ração Comercial",
+          title: "Fase 1: Ração Comercial",
           description: [
-            "Vantagens: Qualidade consistente, menor investimento inicial, logística simples.",
-            "Custo atual: ~ Gs 2.020 / kg.",
-            "Impacto: Custo ovo ~ Gs 280-320."
+            "Início com rações diferenciadas por fase.",
+            "Benefício: Qualidade estável, simplicidade logística.",
+            "Objetivo: Estabilizar fluxo de caixa (6-9 meses)."
           ]
         },
         {
-          title: "Opção B: Formulação Própria",
+          title: "Fase 2: Formulação Própria",
           description: [
-            "Vantagens: Redução de custo (25-30%), controle de qualidade, independência.",
-            "Insumos: Milho (1.300 Gs/kg), Soja (2.200 Gs/kg).",
-            "Custo estimado: ~ Gs 1.500 / kg.",
-            "Impacto: Custo ovo ~ Gs 230-260."
+            "Investimento em moinho e silos após estabilização.",
+            "Redução potencial de custo: 25% - 30%.",
+            "Economia anual estimada: Gs 1.200 - 1.400 milhões."
           ]
         }
       ],
       recommendationTitle: "Estratégia Recomendada",
-      recommendationText: "Iniciar com ração comercial para reduzir riscos operacionais no arranque. Ao alcançar escala estável, investir em fábrica de ração própria para capturar 30% adicional de margem."
+      recommendationText: "Iniciar com ração comercial para minimizar o risco operacional inicial, e utilizar os dados reais para desenhar uma transição controlada para formulação própria."
     },
     footer: {
       title: "Pronto para investir em segurança alimentar?",

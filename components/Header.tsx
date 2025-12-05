@@ -23,41 +23,44 @@ export const Header: React.FC<HeaderProps> = ({ content, language, onLanguageCha
       {/* Background glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
-      {/* Language Toggle */}
-      <div className="absolute top-6 right-6 z-20 flex bg-black/60 rounded-full p-1 border border-border backdrop-blur-md">
-        <button
-          onClick={() => onLanguageChange('es')}
-          className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
-            language === 'es' 
-              ? 'bg-accent text-black shadow-lg shadow-accent/20' 
-              : 'text-slate-500 hover:text-accent'
-          }`}
-        >
-          ES
-        </button>
-        <button
-          onClick={() => onLanguageChange('pt')}
-          className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
-            language === 'pt' 
-              ? 'bg-accent text-black shadow-lg shadow-accent/20' 
-              : 'text-slate-500 hover:text-accent'
-          }`}
-        >
-          PT
-        </button>
-      </div>
-
       <div className="flex flex-col gap-6 relative z-10">
         
-        {/* Logo Section */}
-        <div className="flex items-center gap-4 mb-2">
-          <div className="relative group">
-            <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-700"></div>
-            <GoldenEggLogo className="w-16 h-16 md:w-20 md:h-20 drop-shadow-2xl relative z-10" />
+        {/* Top Row: Logo & Language Toggle */}
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+          {/* Logo Section */}
+          <div className="flex items-center gap-4">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-700"></div>
+              <GoldenEggLogo className="w-16 h-16 md:w-20 md:h-20 drop-shadow-2xl relative z-10" />
+            </div>
+            <div className="flex flex-col opacity-90">
+              <span className="text-accent text-[10px] uppercase tracking-[0.25em] font-serif font-bold">Investimento Premium</span>
+              <span className="text-white font-serif text-lg md:text-xl tracking-widest border-b border-accent/30 pb-1">GRANJA RURAL</span>
+            </div>
           </div>
-          <div className="flex flex-col opacity-90">
-            <span className="text-accent text-[10px] uppercase tracking-[0.25em] font-serif font-bold">Investimento Premium</span>
-            <span className="text-white font-serif text-lg md:text-xl tracking-widest border-b border-accent/30 pb-1">GRANJA RURAL</span>
+
+          {/* Language Toggle */}
+          <div className="self-end sm:self-auto flex bg-black/60 rounded-full p-1 border border-border backdrop-blur-md z-20">
+            <button
+              onClick={() => onLanguageChange('es')}
+              className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
+                language === 'es' 
+                  ? 'bg-accent text-black shadow-lg shadow-accent/20' 
+                  : 'text-slate-500 hover:text-accent'
+              }`}
+            >
+              ES
+            </button>
+            <button
+              onClick={() => onLanguageChange('pt')}
+              className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
+                language === 'pt' 
+                  ? 'bg-accent text-black shadow-lg shadow-accent/20' 
+                  : 'text-slate-500 hover:text-accent'
+              }`}
+            >
+              PT
+            </button>
           </div>
         </div>
 
@@ -85,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({ content, language, onLanguageCha
                     <span className="text-xs font-medium text-slate-500 uppercase tracking-widest">{kpi.label}</span>
                     <Icon className="w-4 h-4 text-accent opacity-70 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <div className="text-lg md:text-xl font-bold text-white mb-2 font-serif tracking-wide">{kpi.value}</div>
+                  <div className="text-lg md:text-xl font-bold text-white mb-2 font-serif tracking-wide break-words">{kpi.value}</div>
                   <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary/10 text-emerald-400 text-[10px] md:text-xs font-medium border border-secondary/20">
                     {kpi.subtext}
                   </div>

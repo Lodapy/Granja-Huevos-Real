@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Section } from './components/Section';
 import { InvestmentTable } from './components/InvestmentTable';
-import { ScenarioChart } from './components/ScenarioChart';
-import { CONTENT, TOTAL_INVESTMENT, EXCHANGE_RATE } from './constants';
-import { Language } from './types';
+import { CONTENT, TOTAL_INVESTMENT, EXCHANGE_RATE, CONTACT_EMAIL } from './constants';
+import { Language, UnitMetrics } from './types';
 import { CheckCircle2, Factory, TrendingUp } from 'lucide-react';
 
 function App() {
@@ -30,8 +29,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen text-slate-200 p-4 md:p-6 lg:p-8 font-sans selection:bg-accent selection:text-black">
-      <div className="max-w-6xl mx-auto pb-12">
+    <div className="min-h-screen text-slate-200 p-2 md:p-6 lg:p-8 font-sans selection:bg-accent selection:text-black overflow-x-hidden">
+      <div className="max-w-6xl mx-auto pb-12 w-full">
         <Header 
           content={t.header} 
           language={language} 
@@ -69,16 +68,18 @@ function App() {
             subtitle={t.capex.subtitle}
           >
             <div className="grid md:grid-cols-2 gap-8 items-start">
-              <div className="space-y-4">
+              <div className="space-y-4 w-full min-w-0">
                  <h3 className="text-xs uppercase tracking-widest font-semibold text-accent mb-2 pl-1">{t.capex.tableTitle}</h3>
-                 <InvestmentTable 
-                   items={t.capex.items} 
-                   headers={t.capex.tableHeaders} 
-                   exchangeRate={EXCHANGE_RATE}
-                 />
-                 <div className="flex justify-between items-center bg-accent/10 p-3 rounded-lg border border-accent/20 mt-2">
+                 <div className="max-w-full">
+                   <InvestmentTable 
+                     items={t.capex.items} 
+                     headers={t.capex.tableHeaders} 
+                     exchangeRate={EXCHANGE_RATE}
+                   />
+                 </div>
+                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-accent/10 p-3 rounded-lg border border-accent/20 mt-2 gap-2 sm:gap-0">
                     <span className="text-accent font-bold uppercase text-xs tracking-wider">{t.capex.totalLabel}</span>
-                    <div className="text-right">
+                    <div className="text-left sm:text-right">
                       <div className="text-white font-bold font-serif tabular-nums text-sm sm:text-base">{new Intl.NumberFormat('es-PY').format(TOTAL_INVESTMENT)} Gs</div>
                       <div className="text-emerald-400 font-bold font-serif tabular-nums text-xs sm:text-sm">{formatUSD(totalInvestmentUSD)}</div>
                     </div>
@@ -102,25 +103,29 @@ function App() {
             subtitle={t.opex.subtitle}
           >
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
+              <div className="space-y-4 w-full min-w-0">
                 <h3 className="text-xs uppercase tracking-widest font-semibold text-accent mb-2 pl-1">{t.opex.tableTitle}</h3>
-                <InvestmentTable 
-                  items={t.opex.items} 
-                  headers={t.opex.tableHeaders}
-                  exchangeRate={EXCHANGE_RATE}
-                />
+                <div className="max-w-full">
+                  <InvestmentTable 
+                    items={t.opex.items} 
+                    headers={t.opex.tableHeaders}
+                    exchangeRate={EXCHANGE_RATE}
+                  />
+                </div>
                 <p className="text-xs text-slate-500 italic mt-2">{t.opex.note}</p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4 w-full min-w-0">
                 <h3 className="text-xs uppercase tracking-widest font-semibold text-accent mb-2 pl-1">{t.opex.unitMetricsTitle}</h3>
-                <div className="bg-card/80 rounded-xl border border-border p-6 space-y-4 h-full shadow-inner">
-                  {(Object.keys(t.opex.unitMetrics) as Array<keyof typeof t.opex.unitMetrics>).map((key) => (
-                    <div key={key} className="flex justify-between items-center border-b border-white/5 pb-3 last:border-0 last:pb-0">
-                      <span className="text-slate-400 text-sm">{t.opex.unitMetrics[key].label}</span>
-                      <span className={`font-serif font-bold tracking-wide ${key === 'annualProd' ? 'text-accent text-lg' : 'text-white'}`}>
-                        {t.opex.unitMetrics[key].value}
-                      </span>
+                <div className="bg-card/80 rounded-xl border border-border p-4 sm:p-6 space-y-4 h-full shadow-inner">
+                  {(Object.keys(t.opex.unitMetrics) as Array<keyof UnitMetrics>).map((key) => (
+                    <div key={key} className="flex flex-col gap-1 border-b border-white/5 pb-3 last:border-0 last:pb-0">
+                      <div className="flex justify-between items-baseline flex-wrap gap-2">
+                        <span className="text-slate-400 text-sm">{t.opex.unitMetrics[key].label}</span>
+                        <span className={`font-serif font-bold tracking-wide text-right ${key === 'annualProd' ? 'text-accent text-lg' : 'text-white'}`}>
+                          {t.opex.unitMetrics[key].value}
+                        </span>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -134,13 +139,13 @@ function App() {
             subtitle={t.scenarios.subtitle}
           >
             <div className="grid lg:grid-cols-2 gap-8 items-start">
-              <div>
-                 <div className="overflow-hidden rounded-xl border border-border bg-black/20">
-                   <div className="overflow-x-auto">
-                     <table className="w-full text-sm text-left">
+              <div className="w-full min-w-0">
+                 <div className="rounded-xl border border-border bg-black/20 overflow-hidden w-full">
+                   <div className="overflow-x-auto w-full">
+                     <table className="w-full text-sm text-left min-w-[600px]">
                        <thead className="bg-secondary/20 text-accent uppercase text-xs font-semibold tracking-wider">
                          <tr>
-                           <th className="px-4 py-3 whitespace-nowrap">{t.scenarios.labels.scenario}</th>
+                           <th className="px-4 py-3 whitespace-nowrap sticky left-0 bg-[#06241b] z-10 shadow-lg md:static md:shadow-none md:bg-transparent">{t.scenarios.labels.scenario}</th>
                            <th className="px-4 py-3 text-right whitespace-nowrap">{t.scenarios.labels.price}</th>
                            <th className="px-4 py-3 text-right whitespace-nowrap">{t.scenarios.labels.annualUtility}</th>
                            <th className="px-4 py-3 text-right whitespace-nowrap">{t.scenarios.labels.roi}</th>
@@ -153,7 +158,7 @@ function App() {
                              hover:bg-white/5 transition-colors
                              ${scenario.type === 'realistic' ? 'bg-accent/5' : ''}
                            `}>
-                             <td className="px-4 py-3">
+                             <td className="px-4 py-3 sticky left-0 bg-[#0c1613] z-10 border-r border-border/30 md:static md:border-r-0 md:bg-transparent">
                                <span className={`text-[10px] font-bold uppercase tracking-widest py-1 px-2 rounded-sm inline-block whitespace-nowrap border
                                  ${scenario.type === 'conservative' ? 'border-slate-600 text-slate-400' : ''}
                                  ${scenario.type === 'realistic' ? 'border-accent text-accent' : ''}
@@ -182,12 +187,24 @@ function App() {
                  </div>
               </div>
               
-              <div className="bg-black/20 rounded-xl p-4 border border-border">
-                <h4 className="text-xs text-center text-accent uppercase tracking-widest font-semibold mb-2">{t.scenarios.labels.chartTitle}</h4>
-                <ScenarioChart data={t.scenarios.items} labels={t.scenarios.labels} />
-                <p className="text-xs text-center text-slate-500 mt-4 max-w-xs mx-auto italic">
-                  {t.scenarios.chartNote}
+              <div className="bg-card rounded-xl p-6 border border-border shadow-xl h-full flex flex-col justify-center">
+                <h3 className="font-serif text-lg text-white font-bold mb-3">{t.scenarios.interpretation.title}</h3>
+                <p className="text-slate-400 text-sm mb-4 leading-relaxed">
+                  {t.scenarios.interpretation.text}
                 </p>
+                <ul className="space-y-2 mb-5">
+                  {t.scenarios.interpretation.bullets.map((bullet, i) => (
+                    <li key={i} className="text-xs text-slate-500 flex gap-2">
+                      <span className="text-accent">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="bg-accent/10 border border-accent/20 p-4 rounded-lg mt-auto">
+                  <p className="text-xs md:text-sm text-slate-300 italic">
+                    {t.scenarios.interpretation.conclusion}
+                  </p>
+                </div>
               </div>
             </div>
           </Section>
