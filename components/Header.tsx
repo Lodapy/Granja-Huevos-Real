@@ -83,13 +83,13 @@ export const Header: React.FC<HeaderProps> = ({ content, language, onLanguageCha
             {content.kpis.map((kpi, idx) => {
               const Icon = icons[idx % icons.length];
               return (
-                <div key={idx} className="group bg-black/40 backdrop-blur-sm border border-border p-4 rounded-xl hover:border-accent/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5">
-                  <div className="flex items-start justify-between mb-2">
-                    <span className="text-xs font-medium text-slate-500 uppercase tracking-widest">{kpi.label}</span>
-                    <Icon className="w-4 h-4 text-accent opacity-70 group-hover:opacity-100 transition-opacity" />
+                <div key={idx} className="group bg-black/40 backdrop-blur-sm border border-border p-5 rounded-xl hover:border-accent/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5">
+                  <div className="flex items-start justify-between mb-3">
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-widest">{kpi.label}</span>
+                    <Icon className="w-5 h-5 text-accent opacity-70 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <div className="text-lg md:text-xl font-bold text-white mb-2 font-serif tracking-wide break-words">{kpi.value}</div>
-                  <div className="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary/10 text-emerald-400 text-[10px] md:text-xs font-medium border border-secondary/20">
+                  <div className="text-xl md:text-2xl font-bold text-white mb-3 font-serif tracking-wide break-words">{kpi.value}</div>
+                  <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-secondary/10 text-emerald-400 text-xs md:text-sm font-semibold border border-secondary/20">
                     {kpi.subtext}
                   </div>
                 </div>
