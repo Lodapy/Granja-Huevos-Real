@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ content, language, onLanguageCha
             </div>
             <div className="flex flex-col opacity-90">
               <span className="text-accent text-[10px] uppercase tracking-[0.25em] font-serif font-bold">Investimento Premium</span>
-              <span className="text-white font-serif text-lg md:text-xl tracking-widest border-b border-accent/30 pb-1">GRANJA RURAL</span>
+              <span className="text-white font-serif text-lg md:text-xl tracking-widest border-b border-accent/30 pb-1">FAZENDA DE OVOS</span>
             </div>
           </div>
 

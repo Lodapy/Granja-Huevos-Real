@@ -4,9 +4,10 @@ import { Header } from './components/Header';
 import { Section } from './components/Section';
 import { InvestmentTable } from './components/InvestmentTable';
 import { ScenarioChart } from './components/ScenarioChart';
+import { PrintableSummary } from './components/PrintableSummary';
 import { CONTENT, TOTAL_INVESTMENT, EXCHANGE_RATE, CONTACT_EMAIL } from './constants';
 import { Language, UnitMetrics } from './types';
-import { CheckCircle2, Factory, TrendingUp } from 'lucide-react';
+import { CheckCircle2, Factory, TrendingUp, AlertTriangle, FileText } from 'lucide-react';
 
 function App() {
   const [language, setLanguage] = useState<Language>('es');
@@ -15,8 +16,8 @@ function App() {
   // Update document title based on language
   useEffect(() => {
     document.title = language === 'es' 
-      ? 'Proyecto Granja de Ponedoras - 36.000 Aves' 
-      : 'Projeto Granja de Poedeiras - 36.000 Aves';
+      ? 'Proyecto Fazenda de Ovos - 36.000 Aves' 
+      : 'Projeto Fazenda de Ovos - 36.000 Aves';
   }, [language]);
 
   const totalInvestmentUSD = TOTAL_INVESTMENT / EXCHANGE_RATE;
@@ -33,9 +34,16 @@ function App() {
     }).format(value);
   };
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
-    <div className="min-h-screen text-slate-200 p-2 md:p-6 lg:p-8 font-sans selection:bg-accent selection:text-black overflow-x-hidden">
-      <div className="max-w-6xl mx-auto pb-12 w-full">
+    <div className="min-h-screen text-slate-200 p-2 md:p-6 lg:p-8 font-sans selection:bg-accent selection:text-black overflow-x-hidden print:overflow-visible">
+      {/* Printable Component - Only visible when printing */}
+      <PrintableSummary content={t.printable} />
+      
+      <div className="max-w-6xl mx-auto pb-12 w-full print:hidden">
         <Header 
           content={t.header} 
           language={language} 
@@ -47,10 +55,10 @@ function App() {
           {/* Executive Summary */}
           <Section title={t.summary.title}>
             <p className="text-slate-300 leading-relaxed mb-6 font-light">
-              {t.summary.text.split('36.000').map((part, i, arr) => (
+              {t.summary.text.split('Fazenda de Ovos').map((part, i, arr) => (
                 <React.Fragment key={i}>
                   {part}
-                  {i < arr.length - 1 && <strong className="text-white font-semibold">36.000</strong>}
+                  {i < arr.length - 1 && <strong className="text-accent font-bold">Fazenda de Ovos</strong>}
                 </React.Fragment>
               ))}
             </p>
@@ -209,6 +217,29 @@ function App() {
             </div>
           </Section>
 
+          {/* Risks & Objections */}
+          <Section 
+            title={t.risks.title} 
+            subtitle={t.risks.subtitle}
+          >
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              {t.risks.items.map((risk, index) => (
+                <div key={index} className="bg-card/90 rounded-xl border border-white/5 p-4 hover:border-accent/30 transition-all duration-300">
+                  <h3 className="font-bold text-sm text-accent mb-2 font-serif">{risk.question}</h3>
+                  <p className="text-xs text-slate-400 leading-relaxed pl-3 border-l-2 border-accent/20">
+                    {risk.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="bg-secondary/10 border border-secondary/30 rounded-xl p-5 flex gap-4 items-start shadow-lg">
+              <AlertTriangle className="w-5 h-5 text-accent mt-1 shrink-0" />
+              <p className="text-sm text-slate-300 italic">
+                {t.risks.conclusion}
+              </p>
+            </div>
+          </Section>
+
           {/* Strategic Recommendation */}
           <Section 
             title={t.strategy.title} 
@@ -242,6 +273,37 @@ function App() {
               </p>
             </div>
           </Section>
+
+          {/* Footer / CTA with Download */}
+          <div className="bg-gradient-to-b from-card to-black rounded-2xl p-8 border border-border text-center relative overflow-hidden">
+             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
+             <h2 className="text-2xl md:text-3xl font-bold text-white font-serif mb-4">{t.footer.title}</h2>
+             <p className="text-slate-400 mb-8 max-w-2xl mx-auto">{t.footer.text}</p>
+             
+             <div className="flex flex-wrap justify-center gap-4 mb-8">
+               <button 
+                 onClick={handlePrint}
+                 className="px-8 py-3 bg-white text-black font-bold rounded-full hover:bg-slate-200 transition-all shadow-lg flex items-center gap-2 transform hover:-translate-y-1"
+               >
+                 <FileText className="w-4 h-4" />
+                 {t.printable.buttonText}
+               </button>
+               <a 
+                 href={`mailto:${CONTACT_EMAIL}`}
+                 className="px-8 py-3 bg-accent text-black font-bold rounded-full hover:bg-accent-hover transition-all shadow-lg transform hover:-translate-y-1"
+               >
+                 {t.footer.ctaDossier}
+               </a>
+             </div>
+             
+             <div className="text-xs text-slate-600 border-t border-white/5 pt-6 flex flex-col md:flex-row justify-center gap-2 md:gap-8">
+               <span>{t.footer.location}</span>
+               <span className="hidden md:inline">•</span>
+               <span>{t.footer.currency}</span>
+               <span className="hidden md:inline">•</span>
+               <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-accent transition-colors">{CONTACT_EMAIL}</a>
+             </div>
+          </div>
 
         </main>
       </div>

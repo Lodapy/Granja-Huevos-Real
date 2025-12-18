@@ -45,6 +45,11 @@ export interface UnitMetrics {
   annualProd: { label: string, value: string };
 }
 
+export interface RiskItem {
+  question: string;
+  answer: string;
+}
+
 export interface ContentHeader {
   badge: string;
   titleStart: string;
@@ -99,12 +104,32 @@ export interface ContentScenarios {
   chartNote: string;
 }
 
+export interface ContentRisks {
+  title: string;
+  subtitle: string;
+  items: RiskItem[];
+  conclusion: string;
+}
+
 export interface ContentStrategy {
   title: string;
   subtitle: string;
   stages: StrategyStage[];
   recommendationTitle: string;
   recommendationText: string;
+}
+
+export interface ContentPrintable {
+  buttonText: string;
+  title: string;
+  subtitle: string;
+  sections: {
+    overview: { title: string; text: string };
+    financials: { title: string; capex: string; opex: string; roi: string };
+    roadmap: { title: string; phase1: string; phase2: string };
+    conclusion: { title: string; text: string };
+  };
+  contact: string;
 }
 
 export interface ContentFooter {
@@ -122,6 +147,8 @@ export interface Content {
   capex: ContentCapex;
   opex: ContentOpex;
   scenarios: ContentScenarios;
+  risks: ContentRisks;
   strategy: ContentStrategy;
+  printable: ContentPrintable;
   footer: ContentFooter;
 }

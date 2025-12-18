@@ -37,7 +37,7 @@ export const CONTENT: Record<Language, Content> = {
     },
     summary: {
       title: "Resumen Ejecutivo",
-      text: "El proyecto “Huevos Granjeros” consiste en la implantación de tres galpones de 125 m x 12 m cada uno, para alojar un total de 36.000 ponedoras Hi-Line Brown. El diseño contempla alimentación con balanceados comerciales específicos por fase (iniciador, crecimiento, pre-postura y postura), con precios actualizados al mercado paraguayo 2025, ventilación de presión positiva y protocolos de bioseguridad.",
+      text: "El proyecto “Fazenda de Ovos” consiste en la implantación de tres galpones de 125 m x 12 m cada uno, para alojar un total de 36.000 ponedoras Hi-Line Brown. El diseño contempla alimentación con balanceados comerciales específicos por fase (iniciador, crecimiento, pre-postura y postura), con precios actualizados al mercado paraguayo 2025, ventilación de presión positiva y protocolos de bioseguridad.",
       keyPointTitle: "Conclusión ejecutiva",
       keyPointText: "Aun con el costo actual de balanceados, el proyecto presenta un ROI anual entre ~44 % y ~229 %, con un período de recuperación de la inversión que se ubica entre aproximadamente 5 y 27 meses según el precio de venta del huevo. Es un activo agroindustrial productivo que combina infraestructura, stock biológico y flujo de caja constante."
     },
@@ -138,6 +138,15 @@ export const CONTENT: Record<Language, Content> = {
       },
       chartNote: 'A 400 Gs/huevo, el proyecto es rentable (ROI 44%). A 500 Gs/huevo, el payback baja a 10 meses. A 650 Gs/huevo, recuperación en 5 meses.'
     },
+    risks: {
+      title: "Riesgos y Objeciones",
+      subtitle: "Análisis de sensibilidad y mitigación.",
+      conclusion: "El proyecto cuenta con barreras de entrada por escala y tecnificación.",
+      items: [
+        { question: "¿Y si sube el balanceado?", answer: "El ROI se mantiene atractivo incluso con subas del 20%." },
+        { question: "¿Riesgo sanitario?", answer: "Protocolo estricto de bioseguridad y vacunación completa." }
+      ]
+    },
     strategy: {
       title: "Recomendación Estratégica",
       subtitle: "Fase 1 (Comercial) vs Fase 2 (Formulación Propia)",
@@ -161,6 +170,33 @@ export const CONTENT: Record<Language, Content> = {
       ],
       recommendationTitle: "Estrategia Recomendada",
       recommendationText: "Arrancar con balanceado comercial para minimizar el riesgo operativo inicial, y utilizar los datos reales para diseñar una transición controlada hacia formulación propia."
+    },
+    printable: {
+      buttonText: "Descargar Resumen Ejecutivo (PDF)",
+      title: "MEMORÁNDUM EJECUTIVO",
+      subtitle: "Proyecto Fazenda de Ovos - Ciudad del Este, Paraguay - 2025",
+      sections: {
+        overview: {
+          title: "1. Visión General",
+          text: "Implementación de una unidad productiva de 36.000 ponedoras. Activos reales con flujo de caja diario."
+        },
+        financials: {
+          title: "2. Finanzas",
+          capex: "Inversión: Gs 2.039.835.000",
+          opex: "Costos: Gs 5.154.768.000 / año",
+          roi: "ROI: 44% - 229%"
+        },
+        roadmap: {
+          title: "3. Ejecución",
+          phase1: "Fase 1: Balanceado comercial.",
+          phase2: "Fase 2: Molino propio."
+        },
+        conclusion: {
+          title: "4. Conclusión",
+          text: "Oportunidad de bajo riesgo respaldada por demanda inelástica de alimentos."
+        }
+      },
+      contact: "Contacto: inversiones@granjarural.com"
     },
     footer: {
       title: "¿Listo para invertir en seguridad alimentaria?",
@@ -202,7 +238,7 @@ export const CONTENT: Record<Language, Content> = {
     },
     summary: {
       title: "Resumo Executivo",
-      text: "O projeto “Ovos de Granja” consiste na implantação de três galpões de 125 m x 12 m cada, para alojar um total de 36.000 poedeiras Hi-Line Brown. O design contempla alimentação com rações comerciais específicas por fase (inicial, crescimento, pré-postura e postura), com preços atualizados ao mercado paraguaio 2025.",
+      text: "O projeto “Fazenda de Ovos” consiste na implantação de três galpões de 125 m x 12 m cada, para alojar um total de 36.000 poedeiras Hi-Line Brown. O design contempla alimentação com rações comerciais específicas por fase (inicial, crescimento, pré-postura e postura), com preços atualizados ao mercado paraguaio 2025.",
       keyPointTitle: "Conclusão executiva",
       keyPointText: "Mesmo com o custo atual das rações, o projeto apresenta um ROI anual entre ~44 % e ~229 %, com um período de recuperação do investimento entre aproximadamente 5 e 27 meses. É um ativo agroindustrial produtivo que combina infraestrutura, stock biológico y fluxo de caixa constante."
     },
@@ -265,7 +301,7 @@ export const CONTENT: Record<Language, Content> = {
           ]
         },
         { 
-          category: "Mão de obra (6 pessoas)", 
+          category: "Mano de obra (6 personas)", 
           amount: 216000000,
           details: [
             { name: "Equipe", value: "6 Operários" },
@@ -303,6 +339,15 @@ export const CONTENT: Record<Language, Content> = {
       },
       chartNote: "A 400 Gs/ovo, o projeto é rentável (ROI 44%). A 500 Gs/ovo, o payback baixa para 10 meses. A 650 Gs/ovo, recuperação em 5 meses."
     },
+    risks: {
+      title: "Riscos e Objeções",
+      subtitle: "Principais dúvidas técnicas.",
+      conclusion: "Forte barreira de entrada e demanda recorrente.",
+      items: [
+        { question: "E se o preço da ração subir?", answer: "O projeto absorve altas de até 25% mantendo ROI positivo." },
+        { question: "Risco biológico?", answer: "Biossegurança nível industrial com vacinação completa." }
+      ]
+    },
     strategy: {
       title: "Recomendação Estratégica",
       subtitle: "Fase 1 (Comercial) vs Fase 2 (Formulação Própria)",
@@ -324,8 +369,35 @@ export const CONTENT: Record<Language, Content> = {
           ]
         }
       ],
-      recommendationTitle: "Estratégia Recomendada",
+      recommendationTitle: "Estrategia Recomendada",
       recommendationText: "Iniciar com ração comercial para minimizar o risco operacional inicial, e utilizar os dados reais para desenhar uma transição controlada para formulação própria."
+    },
+    printable: {
+      buttonText: "Baixar Resumo Executivo (PDF)",
+      title: "MEMORANDO EXECUTIVO",
+      subtitle: "Projeto Fazenda de Ovos - Ciudad del Este, Paraguai - 2025",
+      sections: {
+        overview: {
+          title: "1. Visão Geral",
+          text: "Implantação de unidade produtiva de 36.000 poedeiras. Ativos físicos e fluxo diário."
+        },
+        financials: {
+          title: "2. Financeiro",
+          capex: "Investimento: Gs 2.039.835.000",
+          opex: "Custos: Gs 5.154.768.000 / ano",
+          roi: "ROI: 44% - 229%"
+        },
+        roadmap: {
+          title: "3. Estratégia",
+          phase1: "Fase 1: Ração comercial estável.",
+          phase2: "Fase 2: Integração vertical."
+        },
+        conclusion: {
+          title: "4. Conclusão",
+          text: "Ativo agroindustrial resiliente contra inflação e variações cambiais."
+        }
+      },
+      contact: "Contato: inversiones@granjarural.com"
     },
     footer: {
       title: "Pronto para investir em segurança alimentar?",
