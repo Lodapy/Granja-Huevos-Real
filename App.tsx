@@ -90,11 +90,11 @@ function App() {
                      exchangeRate={EXCHANGE_RATE}
                    />
                  </div>
-                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-accent/10 p-3 rounded-lg border border-accent/20 mt-2 gap-2 sm:gap-0">
-                    <span className="text-accent font-bold uppercase text-xs tracking-wider">{t.capex.totalLabel}</span>
+                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-accent/10 p-4 rounded-lg border border-accent/20 mt-2 gap-2 sm:gap-0">
+                    <span className="text-accent font-bold uppercase text-sm tracking-wider">{t.capex.totalLabel}</span>
                     <div className="text-left sm:text-right">
-                      <div className="text-white font-bold font-serif tabular-nums text-sm sm:text-base">{new Intl.NumberFormat('es-PY').format(TOTAL_INVESTMENT)} Gs</div>
-                      <div className="text-emerald-400 font-bold font-serif tabular-nums text-xs sm:text-sm">{formatUSD(totalInvestmentUSD)}</div>
+                      <div className="text-white font-bold font-serif tabular-nums text-lg sm:text-xl">{new Intl.NumberFormat('es-PY').format(TOTAL_INVESTMENT)} Gs</div>
+                      <div className="text-emerald-400 font-bold font-serif tabular-nums text-base sm:text-lg">{formatUSD(totalInvestmentUSD)}</div>
                     </div>
                  </div>
               </div>
@@ -125,11 +125,11 @@ function App() {
                     exchangeRate={EXCHANGE_RATE}
                   />
                 </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-secondary/5 p-3 rounded-lg border border-secondary/20 mt-2 gap-2 sm:gap-0">
-                  <span className="text-emerald-500 font-bold uppercase text-xs tracking-wider">Total OPEX Estimado</span>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-secondary/5 p-4 rounded-lg border border-secondary/20 mt-2 gap-2 sm:gap-0">
+                  <span className="text-emerald-500 font-bold uppercase text-sm tracking-wider">Total OPEX Estimado</span>
                   <div className="text-left sm:text-right">
-                    <div className="text-white font-bold font-serif tabular-nums text-sm sm:text-base">{new Intl.NumberFormat('es-PY').format(calculatedTotalOpex)} Gs</div>
-                    <div className="text-emerald-400 font-bold font-serif tabular-nums text-xs sm:text-sm">{formatUSD(totalOpexUSD)}</div>
+                    <div className="text-white font-bold font-serif tabular-nums text-lg sm:text-xl">{new Intl.NumberFormat('es-PY').format(calculatedTotalOpex)} Gs</div>
+                    <div className="text-emerald-400 font-bold font-serif tabular-nums text-base sm:text-lg">{formatUSD(totalOpexUSD)}</div>
                   </div>
                 </div>
                 <p className="text-xs text-slate-500 italic mt-2">{t.opex.note}</p>
@@ -141,8 +141,8 @@ function App() {
                   {(Object.keys(t.opex.unitMetrics) as Array<keyof UnitMetrics>).map((key) => (
                     <div key={key} className="flex flex-col gap-1 border-b border-white/5 pb-3 last:border-0 last:pb-0">
                       <div className="flex justify-between items-baseline flex-wrap gap-2">
-                        <span className="text-slate-400 text-sm">{t.opex.unitMetrics[key].label}</span>
-                        <span className={`font-serif font-bold tracking-wide text-right ${key === 'annualProd' ? 'text-accent text-lg' : 'text-white'}`}>
+                        <span className="text-slate-400 text-sm font-medium">{t.opex.unitMetrics[key].label}</span>
+                        <span className={`font-serif font-bold tracking-wide text-right ${key === 'annualProd' ? 'text-accent text-xl' : 'text-white text-base'}`}>
                           {t.opex.unitMetrics[key].value}
                         </span>
                       </div>
@@ -162,8 +162,8 @@ function App() {
               <div className="w-full min-w-0">
                  <div className="rounded-xl border border-border bg-black/20 overflow-hidden w-full">
                    <div className="overflow-x-auto w-full">
-                     <table className="w-full text-sm text-left min-w-[600px]">
-                       <thead className="bg-secondary/20 text-accent uppercase text-xs font-semibold tracking-wider">
+                     <table className="w-full text-base text-left min-w-[600px]">
+                       <thead className="bg-secondary/20 text-accent uppercase text-sm font-bold tracking-wider">
                          <tr>
                            <th className="px-4 py-3 whitespace-nowrap sticky left-0 bg-[#06241b] z-10 shadow-lg md:static md:shadow-none md:bg-transparent">{t.scenarios.labels.scenario}</th>
                            <th className="px-4 py-3 text-right whitespace-nowrap">{t.scenarios.labels.price}</th>
@@ -179,7 +179,7 @@ function App() {
                              ${scenario.type === 'realistic' ? 'bg-accent/5' : ''}
                            `}>
                              <td className="px-4 py-3 sticky left-0 bg-[#0c1613] z-10 border-r border-border/30 md:static md:border-r-0 md:bg-transparent">
-                               <span className={`text-[10px] font-bold uppercase tracking-widest py-1 px-2 rounded-sm inline-block whitespace-nowrap border
+                               <span className={`text-xs font-bold uppercase tracking-widest py-1 px-2 rounded-sm inline-block whitespace-nowrap border
                                  ${scenario.type === 'conservative' ? 'border-slate-600 text-slate-400' : ''}
                                  ${scenario.type === 'realistic' ? 'border-accent text-accent' : ''}
                                  ${scenario.type === 'optimistic' ? 'border-emerald-500 text-emerald-500' : ''}
@@ -187,16 +187,16 @@ function App() {
                                  {scenario.name}
                                </span>
                              </td>
-                             <td className="px-4 py-3 text-right text-slate-300 font-medium whitespace-nowrap">
+                             <td className="px-4 py-3 text-right text-slate-300 font-semibold whitespace-nowrap text-base">
                                Gs {scenario.price}
                              </td>
-                             <td className="px-4 py-3 text-right text-white font-bold whitespace-nowrap tabular-nums font-serif tracking-wide">
+                             <td className="px-4 py-3 text-right text-white font-bold whitespace-nowrap tabular-nums font-serif tracking-wide text-lg">
                                {new Intl.NumberFormat('es-PY').format(scenario.utility)}
                              </td>
-                             <td className="px-4 py-3 text-right text-accent font-bold whitespace-nowrap">
+                             <td className="px-4 py-3 text-right text-accent font-bold whitespace-nowrap text-lg">
                                {scenario.roi}
                              </td>
-                             <td className="px-4 py-3 text-right text-slate-400 whitespace-nowrap text-xs">
+                             <td className="px-4 py-3 text-right text-slate-400 whitespace-nowrap text-sm font-medium">
                                {scenario.payback}
                              </td>
                            </tr>
@@ -208,7 +208,7 @@ function App() {
               </div>
               
               <div className="bg-black/20 rounded-xl p-4 border border-border w-full min-w-0">
-                <h4 className="text-xs text-center text-accent uppercase tracking-widest font-semibold mb-2">{t.scenarios.labels.chartTitle}</h4>
+                <h4 className="text-sm text-center text-accent uppercase tracking-widest font-bold mb-3">{t.scenarios.labels.chartTitle}</h4>
                 <ScenarioChart data={t.scenarios.items} labels={t.scenarios.labels} />
                 <p className="text-xs text-center text-slate-500 mt-4 max-w-xs mx-auto italic">
                   {t.scenarios.chartNote}
