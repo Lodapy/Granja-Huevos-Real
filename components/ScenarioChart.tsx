@@ -37,11 +37,11 @@ export const ScenarioChart: React.FC<ScenarioChartProps> = ({ data: scenarios, l
     if (active && payload && payload.length) {
       const d = payload[0].payload;
       return (
-        <div className="bg-card border border-accent/40 p-4 rounded shadow-xl text-sm z-50">
-          <p className="font-bold text-accent mb-2 font-serif uppercase tracking-wider text-base">{d.name}</p>
-          <p className="text-slate-300 mb-1">{labels.price}: <span className="text-white font-semibold">Gs {d.price}</span></p>
-          <p className="text-emerald-400 font-semibold mb-1">{labels.chartTooltipUtility}: {new Intl.NumberFormat('es-PY').format(d.utility)} Gs</p>
-          <p className="text-slate-400">{labels.payback}: <span className="font-medium">{d.payback}</span></p>
+        <div className="bg-card border border-accent/40 p-3 rounded shadow-xl text-xs z-50">
+          <p className="font-bold text-accent mb-1 font-serif uppercase tracking-wider">{d.name}</p>
+          <p className="text-slate-300">{labels.price}: <span className="text-white">Gs {d.price}</span></p>
+          <p className="text-emerald-400">{labels.chartTooltipUtility}: {new Intl.NumberFormat('es-PY').format(d.utility)} Gs</p>
+          <p className="text-slate-400 mt-1">{labels.payback}: {d.payback}</p>
         </div>
       );
     }
@@ -53,14 +53,14 @@ export const ScenarioChart: React.FC<ScenarioChartProps> = ({ data: scenarios, l
       <ResponsiveContainer width="100%" height="100%" minWidth={0}>
         <BarChart data={scenarios} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#132e26" vertical={false} />
-          <XAxis
-            dataKey="name"
-            tick={{ fill: '#94a3b8', fontSize: 14, fontWeight: 600 }}
+          <XAxis 
+            dataKey="name" 
+            tick={{ fill: '#94a3b8', fontSize: 12, fontWeight: 500 }} 
             axisLine={false}
             tickLine={false}
           />
-          <YAxis
-            tick={{ fill: '#64748b', fontSize: 13 }}
+          <YAxis 
+            tick={{ fill: '#64748b', fontSize: 11 }} 
             tickFormatter={formatCurrency}
             axisLine={false}
             tickLine={false}
@@ -73,7 +73,7 @@ export const ScenarioChart: React.FC<ScenarioChartProps> = ({ data: scenarios, l
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      <p className="text-center text-sm text-slate-500 mt-2 tracking-wide uppercase font-medium">{labels.chartX}</p>
+      <p className="text-center text-xs text-slate-500 mt-2 tracking-wide uppercase">{labels.chartX}</p>
     </div>
   );
 };
